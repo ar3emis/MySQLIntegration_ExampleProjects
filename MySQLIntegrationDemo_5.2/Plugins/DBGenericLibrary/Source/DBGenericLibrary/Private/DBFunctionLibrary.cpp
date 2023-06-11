@@ -1,32 +1,28 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "DBGenericLibrary.h"
+#include "DBFunctionLibrary.h"
+
+#include "Interfaces/IPluginManager.h"
 
 typedef char*(*_OpenFileDialogue)(char* DialogueTitle, char* FileTypes, bool multiselect);
 _OpenFileDialogue m_OpenFileDialogueFromDll;
 
 static void *v_dllHandle;
 
-static FString GetFilePath(FString DLLName)
+static FString GetDLLPath(FString DLLName)
 {
-	FString ProjectPath = FPaths::ProjectDir();
-	FString DllPath = FPaths::Combine(*ProjectPath, TEXT("Source/Libraries"), DLLName);
+	//Checks for the Plugin path from the current plugin directory. 
+	FString Pluginpath = IPluginManager::Get().FindPlugin(TEXT("DBGenericLibrary"))->GetBaseDir();
+	FString DllPath = FPaths::Combine(*Pluginpath, TEXT("Libraries"), DLLName);
 
-	if (FPaths::FileExists(DllPath))
-	{
-		return DllPath;
-	}
-	else
-	{
-		return "";
-	}
+	return DllPath;
 	
 }
 
 bool LoadDLL(FString DLLName)
 {
-	FString DllPath = GetFilePath(DLLName);
+	FString DllPath = GetDLLPath(DLLName);
 
 	if (FPaths::FileExists(DllPath))
 	{
@@ -44,6 +40,8 @@ void UnLoadDLL()
 	if (v_dllHandle != nullptr)
 	{
 		FPlatformProcess::FreeDllHandle(m_OpenFileDialogueFromDll);
+		m_OpenFileDialogueFromDll = NULL;
+
 		FPlatformProcess::FreeDllHandle(v_dllHandle);
 		v_dllHandle = nullptr;
 	}
@@ -64,7 +62,7 @@ bool ImportMethod(FString methodname, T& method)
 
 }
 
-bool UDBGenericLibrary::GetOpenFileDialogue(TArray<FString>& FileNames, FString DialogueTitle, FString FileTypes, bool multiselect)
+bool UDBFunctionLibrary::GetOpenFileDialogue(TArray<FString>& FileNames, FString DialogueTitle, FString FileTypes, bool multiselect)
 {
 #if PLATFORM_WINDOWS
 	if (LoadDLL("FileBrowser.dll"))
@@ -116,4 +114,3 @@ bool UDBGenericLibrary::GetOpenFileDialogue(TArray<FString>& FileNames, FString 
 
 	return false;
 }
-
