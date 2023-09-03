@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2019-2023, Athian Games. All Rights Reserved. 
 
 
 #include "DBFunctionLibrary.h"
@@ -40,7 +40,7 @@ void UnLoadDLL()
 	if (v_dllHandle != nullptr)
 	{
 		FPlatformProcess::FreeDllHandle(m_OpenFileDialogueFromDll);
-		m_OpenFileDialogueFromDll = NULL;
+		m_OpenFileDialogueFromDll = nullptr;
 
 		FPlatformProcess::FreeDllHandle(v_dllHandle);
 		v_dllHandle = nullptr;

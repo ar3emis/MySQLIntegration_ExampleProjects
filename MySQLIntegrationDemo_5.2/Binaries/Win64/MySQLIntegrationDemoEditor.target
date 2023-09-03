@@ -12,9 +12,9 @@
 	{
 		"MajorVersion": 5,
 		"MinorVersion": 2,
-		"PatchVersion": 0,
-		"Changelist": 25360045,
-		"CompatibleChangelist": 0,
+		"PatchVersion": 1,
+		"Changelist": 26001984,
+		"CompatibleChangelist": 25360045,
 		"IsLicenseeVersion": 0,
 		"IsPromotedBuild": 0,
 		"BranchName": "++UE5+Release-5.2",
@@ -4858,6 +4858,18 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/MySQL/Binaries/Win64/UnrealEditor-MySQL.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/MySQL/Binaries/Win64/UnrealEditor-MySQL.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/MySQL/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Media/AndroidMedia/Binaries/Win64/UnrealEditor-AndroidMediaEditor.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -6019,18 +6031,6 @@
 		},
 		{
 			"Path": "$(ProjectDir)/Plugins/DBGenericLibrary/Binaries/Win64/UnrealEditor.modules",
-			"Type": "RequiredResource"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/MySQL/Binaries/Win64/UnrealEditor-MySQL.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/MySQL/Binaries/Win64/UnrealEditor-MySQL.pdb",
-			"Type": "SymbolFile"
-		},
-		{
-			"Path": "$(ProjectDir)/Plugins/MySQL/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		}
 	],
@@ -26968,6 +26968,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/MySQL/MySQL.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Media/AndroidMedia/AndroidMedia.uplugin",
 			"Type": "UFS"
 		},
@@ -27204,15 +27208,7 @@
 			"Type": "UFS"
 		},
 		{
-			"Path": "$(ProjectDir)/Binaries/Win64/libcrypto-1_1-x64.dll",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(ProjectDir)/Binaries/Win64/libssl-1_1-x64.dll",
-			"Type": "NonUFS"
-		},
-		{
-			"Path": "$(ProjectDir)/Binaries/Win64/mysqlcppconn-9-vs14.dll",
+			"Path": "$(ProjectDir)/Binaries/Win64/libmariadb.dll",
 			"Type": "NonUFS"
 		},
 		{
@@ -27224,8 +27220,8 @@
 			"Type": "UFS"
 		},
 		{
-			"Path": "$(ProjectDir)/Plugins/MySQL/MySQL.uplugin",
-			"Type": "UFS"
+			"Path": "$(ProjectDir)/Plugins/DBGenericLibrary/Libraries/FileBrowser.dll",
+			"Type": "NonUFS"
 		}
 	],
 	"AdditionalProperties": [
