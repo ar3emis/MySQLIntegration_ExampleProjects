@@ -1,6 +1,8 @@
-MySQLIntegrationDemo/Plugins/Developer/
+Plugins/Developer/
 /Intermediate/
 Intermediate/
 Saved/
-MySQLIntegrationDemo_5.2/.idea/
-MySQLIntegrationDemo_5.2/.vsconfig
+.idea/
+.vsconfig
+**/Plugins/MySQL/
+
