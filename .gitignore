@@ -5,4 +5,5 @@ Saved/
 .idea/
 .vsconfig
 **/Plugins/MySQL/
-
+*.sln
+MySQLLibrary/
