@@ -7,3 +7,5 @@ Saved/
 **/Plugins/MySQL/
 *.sln
 MySQLLibrary/
+MySQLIntegrationDemo_5.3/Content/__ExternalActors__/
+MySQLIntegrationDemo_5.3/Content/__ExternalObjects__/
