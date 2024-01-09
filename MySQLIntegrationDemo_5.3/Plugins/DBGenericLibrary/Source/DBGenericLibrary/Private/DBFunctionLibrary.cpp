@@ -69,8 +69,10 @@ bool UDBFunctionLibrary::GetOpenFileDialogue(TArray<FString>& FileNames, FString
 	{
 		if (ImportMethod<_OpenFileDialogue>("OpenFileDialogue", m_OpenFileDialogueFromDll))
 		{
+
 			char* title = TCHAR_TO_ANSI(*DialogueTitle);
 			char* filetypes = TCHAR_TO_ANSI(*FileTypes);
+
 			char* openedfilename = m_OpenFileDialogueFromDll(title, filetypes, multiselect);
 
 			FString RString = FString(openedfilename);
@@ -97,6 +99,7 @@ bool UDBFunctionLibrary::GetOpenFileDialogue(TArray<FString>& FileNames, FString
 			}
 		}
 
+		
 		if (FileNames.Num() > 0)
 		{
 			UnLoadDLL();

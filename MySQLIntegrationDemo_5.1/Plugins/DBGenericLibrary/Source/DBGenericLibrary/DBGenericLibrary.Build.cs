@@ -1,9 +1,15 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
+using System.IO;
 using UnrealBuildTool;
 
 public class DBGenericLibrary : ModuleRules
 {
+	private string LibraryPath
+	{
+		get { return Path.GetFullPath(Path.Combine(ModuleDirectory, "../../Libraries/")); }
+	}
+	
 	public DBGenericLibrary(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
@@ -49,5 +55,9 @@ public class DBGenericLibrary : ModuleRules
 				// ... add any modules that your module loads dynamically here ...
 			}
 			);
+
+		string fileBrowserDllName = Path.Combine(LibraryPath, "FileBrowser.dll"); 
+		RuntimeDependencies.Add(fileBrowserDllName);
+		PublicDelayLoadDLLs.Add(fileBrowserDllName);
 	}
 }

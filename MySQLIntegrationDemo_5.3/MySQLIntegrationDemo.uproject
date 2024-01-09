@@ -7,17 +7,16 @@
 		{
 			"Name": "MySQLIntegrationDemo",
 			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"Engine"
-			]
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
 		{
-			"Name": "MySQL",
+			"Name": "ModelingToolsEditorMode",
 			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/4a497572d1014beab577112d5a37c813"
+			"TargetAllowList": [
+				"Editor"
+			]
 		}
 	]
 }
